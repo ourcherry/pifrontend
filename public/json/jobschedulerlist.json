@@ -1,0 +1,28 @@
+[
+  {
+    "id": 1,
+    "module": "TEST",
+    "schedulerName": "scheduleOne",
+    "scheduleType": "fixed",
+    "scheduleDesc": "test1",
+    "cronExpression": null,
+    "fixedDelayMs": 10000,
+    "lastRunTime": "2024-11-18T12:10:53.928586",
+    "createTime": null,
+    "updateTime": null,
+    "active": true
+  },
+  {
+    "id": 2,
+    "module": "TEST",
+    "schedulerName": "scheduleTwo",
+    "scheduleType": "cron",
+    "scheduleDesc": "test2",
+    "cronExpression": "0 0/1 * * * ?",
+    "fixedDelayMs": null,
+    "lastRunTime": "2024-11-18T12:03:00.000889",
+    "createTime": null,
+    "updateTime": null,
+    "active": true
+  }
+]
