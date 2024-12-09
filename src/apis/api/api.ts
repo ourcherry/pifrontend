@@ -1,15 +1,26 @@
 import { axiosInstance } from '@/apis/utils';
 
-export const captureImage = async (): Promise<string | null> => {
-  try {
-      const response = await axiosInstance.post('/capture', null, {
-          responseType: "blob",
-      });
-      const imageUrl = URL.createObjectURL(new Blob([response.data]));
-      console.log("capture Image", response, imageUrl)
-      return imageUrl;
-  } catch (error) {
-      console.error("ERROR - captureImage", error);
-      return null;
-  }
+// constants
+const BASE_URL = 'http://192.168.0.27:5000';
+export const SERVER_URL = BASE_URL + '/';
+export const VIDEO_URL = BASE_URL + '/video_feed';
+
+export const captureImage = async () => {
+    try {
+        const { data } = await axiosInstance.post('/capture');
+        return data;
+    } catch (error) {
+        console.error('ERROR - captureImage', error);
+        return null;
+    }
+};
+
+export const createCollage = async () => {
+    try {
+        const { data } = await axiosInstance.post('/collage');
+        return data;
+    } catch (error) {
+        console.error('ERROR - createCollage', error);
+        return null;
+    }
 };

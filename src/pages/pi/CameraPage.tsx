@@ -14,7 +14,6 @@ const CameraPage = () => {
     const handleCapture = async () => {
         const response = await fetch(CAPTURE_URL, { method: 'POST' });
         const data = await response.json();
-        console.log(data);
         setCapturedImages((prev) => [...prev, SERVER_URL + data.imagePath]);
     };
 
