@@ -42,7 +42,7 @@ export const Camera = (): ReactElement => {
                         </Button>
                     </p>
                     <img
-                        src="" //{VIDEO_URL}
+                        src={VIDEO_URL}
                         alt="Live Stream"
                         width="240"
                         height="320"

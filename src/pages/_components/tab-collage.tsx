@@ -1,4 +1,4 @@
-import { ReactElement, useState } from 'react';
+import { ReactElement } from 'react';
 
 import { Button, Separator } from '@/components';
 import { createCollage, SERVER_URL } from '@/apis';
