@@ -24,3 +24,29 @@ export const createCollage = async () => {
         return null;
     }
 };
+
+export const downloadCollage = async (url: string) => {
+    try {
+        const { data } = await axiosInstance.get(url, { responseType: 'blob' });
+        return data;
+    } catch (error) {
+        console.error('ERROR - downloadCollage', error);
+        return null;
+    }
+};
+
+export const generateCollage = async (
+    collageName: string,
+    frameName: string,
+) => {
+    try {
+        const { data } = await axiosInstance.post('generate_collage', {
+            collageName,
+            frameName,
+        });
+        return data;
+    } catch (error) {
+        console.error('ERROR - generateCollage', error);
+        return null;
+    }
+};

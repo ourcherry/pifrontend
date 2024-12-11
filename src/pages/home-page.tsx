@@ -1,10 +1,10 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components';
-import { Camera, Captures, Collage, Menu } from './_components';
+import { Camera, Captures, Collage, Edit, Menu } from './_components';
 
 export const HomePage = (): JSX.Element => {
     return (
         <>
-            <div className="hidden md:block">
+            <div>
                 <Menu />
                 <div className="border-t">
                     <div className="bg-background">
@@ -29,6 +29,12 @@ export const HomePage = (): JSX.Element => {
                                                 <TabsTrigger value="collage">
                                                     Collage
                                                 </TabsTrigger>
+                                                <TabsTrigger
+                                                    value="edit"
+                                                    className="relative"
+                                                >
+                                                    Edit
+                                                </TabsTrigger>
                                             </TabsList>
                                         </div>
 
@@ -46,9 +52,15 @@ export const HomePage = (): JSX.Element => {
                                         </TabsContent>
                                         <TabsContent
                                             value="collage"
-                                            className="border-none p-0 outline-none"
+                                            className="h-full flex-col border-none p-0 data-[state=active]:flex"
                                         >
                                             <Collage />
+                                        </TabsContent>
+                                        <TabsContent
+                                            value="edit"
+                                            className="border-none p-0 outline-none"
+                                        >
+                                            <Edit />
                                         </TabsContent>
                                     </Tabs>
                                 </div>

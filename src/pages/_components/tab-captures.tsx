@@ -26,14 +26,14 @@ export const Captures = (): ReactElement => {
                         {capturedImages.map((image, index) => (
                             <div
                                 key={index}
-                                className={cn('space-y-3', 'w-[240px]')}
+                                className={cn('space-y-3', 'w-[320px]')}
                             >
                                 <div className="overflow-hidden rounded-md">
                                     <img
                                         src={image}
                                         alt={index.toString()}
-                                        width={240}
-                                        height={320}
+                                        width={320}
+                                        height={240}
                                         className={cn(
                                             'h-auto w-auto object-cover transition-all hover:scale-105',
                                             'portrait' === 'portrait'

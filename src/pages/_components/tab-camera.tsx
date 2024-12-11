@@ -3,6 +3,7 @@ import { ReactElement } from 'react';
 import { Button, Separator } from '@/components';
 import { captureImage, SERVER_URL, VIDEO_URL } from '@/apis';
 import { useCaptureStore } from '@/store/client';
+import { toastHandler } from '@/hooks';
 
 export const Camera = (): ReactElement => {
     const { capturedImages, setCapturedImages } = useCaptureStore();
@@ -12,6 +13,9 @@ export const Camera = (): ReactElement => {
             const recentImage = SERVER_URL + res.imagePath;
             const imagesArrSize4 = [...capturedImages, recentImage].slice(-4);
             setCapturedImages(imagesArrSize4);
+            toastHandler({
+                description: '📸 The capture has taken successfully!',
+            });
         });
     };
 
@@ -31,21 +35,18 @@ export const Camera = (): ReactElement => {
 
             <div className="flex h-[400px] shrink-0 items-center justify-center rounded-md border border-dashed">
                 <div className="mx-auto flex max-w-[420px] flex-col items-center justify-center text-center">
-                    <p className="pl-1 mb-2 mt-2 text-sm text-muted-foreground font-semibold">
-                        Smile 😋
-                        <Button
-                            variant="outline"
-                            className="ml-[90px] h-8 p-2"
-                            onClick={handleCapture}
-                        >
-                            capture 📷
-                        </Button>
-                    </p>
+                    <Button
+                        variant="outline"
+                        className="mb-2 h-8 p-2"
+                        onClick={handleCapture}
+                    >
+                        capture 📷
+                    </Button>
                     <img
                         src={VIDEO_URL}
                         alt="Live Stream"
-                        width="240"
-                        height="320"
+                        width="640"
+                        height="480"
                         style={{ border: '1px solid lightgray' }}
                     />
                 </div>
